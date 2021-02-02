@@ -10,7 +10,7 @@ import java.util.Objects;
 @Document
 public class Project {
     @Id
-    private ObjectId _id;
+    private ObjectId projectId;
     private String projectName;
     private Long startDate;
     private Long endDate;
@@ -19,8 +19,8 @@ public class Project {
     private Long createDate;
     private Long modifiedDate;
 
-    public Project(ObjectId _id, String projectName, Long startDate, Long endDate, String description, ObjectId userId, Long createDate, Long modifiedDate) {
-        this._id = _id;
+    public Project(ObjectId projectId, String projectName, Long startDate, Long endDate, String description, ObjectId userId, Long createDate, Long modifiedDate) {
+        this.projectId = projectId;
         this.projectName = projectName;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -30,12 +30,12 @@ public class Project {
         this.modifiedDate = modifiedDate;
     }
 
-    public ObjectId get_id() {
-        return _id;
+    public ObjectId getProjectId() {
+        return projectId;
     }
 
-    public void set_id(ObjectId _id) {
-        this._id = _id;
+    public void setProjectId(ObjectId projectId) {
+        this.projectId = projectId;
     }
 
     public String getProjectName() {
@@ -99,18 +99,18 @@ public class Project {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Project project = (Project) o;
-        return Objects.equals(_id, project._id) && Objects.equals(projectName, project.projectName) && Objects.equals(startDate, project.startDate) && Objects.equals(endDate, project.endDate) && Objects.equals(description, project.description) && Objects.equals(userId, project.userId) && Objects.equals(createDate, project.createDate) && Objects.equals(modifiedDate, project.modifiedDate);
+        return Objects.equals(projectId, project.projectId) && Objects.equals(projectName, project.projectName) && Objects.equals(startDate, project.startDate) && Objects.equals(endDate, project.endDate) && Objects.equals(description, project.description) && Objects.equals(userId, project.userId) && Objects.equals(createDate, project.createDate) && Objects.equals(modifiedDate, project.modifiedDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(_id, projectName, startDate, endDate, description, userId, createDate, modifiedDate);
+        return Objects.hash(projectId, projectName, startDate, endDate, description, userId, createDate, modifiedDate);
     }
 
     @Override
     public String toString() {
         return "Project{" +
-                "_id=" + _id +
+                "projectId=" + projectId +
                 ", projectName='" + projectName + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +

@@ -9,7 +9,7 @@ import java.util.Objects;
 @Document
 public class Task {
     @Id
-    private ObjectId _id;
+    private ObjectId taskId;
     private String taskName;
     private Long startDate;
     private Long endDate;
@@ -21,8 +21,8 @@ public class Task {
     private Long createDate;
     private Long modifiedDate;
 
-    public Task(ObjectId _id, String taskName, Long startDate, Long endDate, String priority, ObjectId assigneeId, String status, ObjectId projectId, ObjectId userId, Long createDate, Long modifiedDate) {
-        this._id = _id;
+    public Task(ObjectId taskId, String taskName, Long startDate, Long endDate, String priority, ObjectId assigneeId, String status, ObjectId projectId, ObjectId userId, Long createDate, Long modifiedDate) {
+        this.taskId = taskId;
         this.taskName = taskName;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -35,12 +35,12 @@ public class Task {
         this.modifiedDate = modifiedDate;
     }
 
-    public ObjectId get_id() {
-        return _id;
+    public ObjectId getTaskId() {
+        return taskId;
     }
 
-    public void set_id(ObjectId _id) {
-        this._id = _id;
+    public void setTaskId(ObjectId taskId) {
+        this.taskId = taskId;
     }
 
     public String getTaskName() {
@@ -128,18 +128,18 @@ public class Task {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return Objects.equals(_id, task._id) && Objects.equals(taskName, task.taskName) && Objects.equals(startDate, task.startDate) && Objects.equals(endDate, task.endDate) && Objects.equals(priority, task.priority) && Objects.equals(assigneeId, task.assigneeId) && Objects.equals(status, task.status) && Objects.equals(projectId, task.projectId) && Objects.equals(userId, task.userId) && Objects.equals(createDate, task.createDate) && Objects.equals(modifiedDate, task.modifiedDate);
+        return Objects.equals(taskId, task.taskId) && Objects.equals(taskName, task.taskName) && Objects.equals(startDate, task.startDate) && Objects.equals(endDate, task.endDate) && Objects.equals(priority, task.priority) && Objects.equals(assigneeId, task.assigneeId) && Objects.equals(status, task.status) && Objects.equals(projectId, task.projectId) && Objects.equals(userId, task.userId) && Objects.equals(createDate, task.createDate) && Objects.equals(modifiedDate, task.modifiedDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(_id, taskName, startDate, endDate, priority, assigneeId, status, projectId, userId, createDate, modifiedDate);
+        return Objects.hash(taskId, taskName, startDate, endDate, priority, assigneeId, status, projectId, userId, createDate, modifiedDate);
     }
 
     @Override
     public String toString() {
         return "Task{" +
-                "_id=" + _id +
+                "taskId=" + taskId +
                 ", taskName='" + taskName + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
